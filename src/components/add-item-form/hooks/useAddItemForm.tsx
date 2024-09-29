@@ -1,14 +1,14 @@
 import { ResponseData } from 'common/types'
-import  { ChangeEvent, useState, KeyboardEvent, useCallback } from 'react'
+import { ChangeEvent, useState, KeyboardEvent, useCallback } from 'react'
 
 export function useAddItemForm(addTask: (taskName: string) => Promise<any>) {
   let [error, setError] = useState<string | null>(null)
   let [inputValue, setInputValue] = useState<string>('')
 
   const addItemHandler = useCallback(
-    (taskName: string) => {
-      if (/[a-zA-Zа-яА-ЯёЁ0-9]/i.test(taskName) && taskName.length >= 3) {
-        addTask(taskName)
+    (title: string) => {
+      if (/[a-zA-Zа-яА-ЯёЁ0-9]/i.test(title) && title.length >= 3) {
+        addTask(title)
           .then(() => setInputValue(''))
           .catch((e: ResponseData) => {
             if ('fieldsErrors' in e) {
@@ -25,7 +25,7 @@ export function useAddItemForm(addTask: (taskName: string) => Promise<any>) {
   const onChangeHandler = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const value = e.currentTarget.value
-      setInputValue(value) //тот элемент с которым произошло событие
+      setInputValue(value)
       if (value.length > 100) setError('max 100 characters')
     },
     [setInputValue]

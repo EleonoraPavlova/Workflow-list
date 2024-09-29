@@ -16,7 +16,7 @@ export const appStartState: AppStartState = {
   status: 'idle',
   error: null,
   success: null,
-  initialized: false, 
+  initialized: false,
 }
 
 const appSlice = createSlice({
@@ -26,18 +26,12 @@ const appSlice = createSlice({
     setAppErrorAC(state, action: PayloadAction<{ error: string | null }>) {
       state.error = action.payload.error
     },
-    // setAppStatusAC(state, action: PayloadAction<{ status: RequestStatus }>) {
-    //   state.status = action.payload.status
-    // },
     setAppSuccessAC(state, action: PayloadAction<{ success: string | null }>) {
       state.success = action.payload.success
     },
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(setAppInitializeTC.fulfilled, (state) => {
-      //   state.initialized = true
-      // })
       .addMatcher(isAnyOf(setAppInitializeTC.fulfilled, setAppInitializeTC.rejected), (state) => {
         state.initialized = true
       })
@@ -75,8 +69,7 @@ const setAppInitializeTC = createAppAsyncThunk<{ isLoggedIn: boolean }, void>(
   async (_, { rejectWithValue }) => {
     const res = await authApi.checkAuthMe()
     if (res.data.resultCode === ResultCode.SUCCEEDED) {
-      // dispatch(setIsLoggedInAC({ isLoggedIn: true }))
-      return { isLoggedIn: true } // анонимный пользователь или авторизованный/and show loader of course
+      return { isLoggedIn: true } //anonymous or not
     } else {
       return rejectWithValue(res.data)
     }

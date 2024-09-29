@@ -106,35 +106,3 @@
     box-shadow: none;
   }
 }
-
-.icon {
-  margin: 0;
-  padding: 0;
-
-  &:disabled {
-    color: var(--color-dark-300);
-  }
-}
-
-.link {
-  padding: 0;
-  color: var(--color-accent-500);
-  text-decoration: none;
-
-  &:hover {
-    color: var(--color-accent-300);
-  }
-
-  &:active {
-    color: var(--color-accent-700);
-  }
-
-  &:focus-visible {
-    color: var(--color-accent-500);
-    outline: var(--outline-width-m) solid var(--color-info-700);
-  }
-
-  &:disabled {
-    color: var(--color-accent-900);
-  }
-}
