@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAppDispatch } from 'common/hooks'
 import { useFormik } from 'formik'
 import { authThunks } from 'services/reducers/authSlice'

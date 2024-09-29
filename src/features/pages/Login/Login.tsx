@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import Grid from '@mui/material/Grid'
 import Checkbox from '@mui/material/Checkbox'
 import FormControl from '@mui/material/FormControl'
 import FormControlLabel from '@mui/material/FormControlLabel'
@@ -7,17 +6,17 @@ import FormGroup from '@mui/material/FormGroup'
 import FormLabel from '@mui/material/FormLabel'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import { useLogin } from './hooks/useLogin'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectIsLoggedIn } from 'services/reducers/authSlice'
-import { Box } from '@mui/material'
+import { Box, Grid } from '@mui/material'
+import { useLogin } from './hooks/useLogin'
 
 type Props = {
   lightMode: boolean
 }
 
-export const Login = ({ lightMode }:Props) => {
+export const Login = ({ lightMode }: Props) => {
   const { formik } = useLogin()
   const navigate = useNavigate()
   let isLoggedIn = useSelector(selectIsLoggedIn) //не залогинены

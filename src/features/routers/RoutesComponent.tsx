@@ -1,7 +1,5 @@
-import { TodolistsPage } from 'features/pages'
-import { Login } from 'features/pages/Login'
-import { NotFound } from 'features/pages/NotFound'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { NotFound, TodolistsPage, Login } from 'features/pages'
 
 type Props = {
   lightMode: boolean

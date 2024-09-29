@@ -7,7 +7,7 @@ import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-export function useTodolistRender() {
+export function useTodolistPage() {
   let isLoggedIn = useSelector(selectIsLoggedIn) //не залогинены
 
   const { addTodolistTC, getTodolistTC } = useActions(todolistsThunks)

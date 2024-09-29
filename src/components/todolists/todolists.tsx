@@ -1,13 +1,11 @@
-
-import { Box, Paper } from '@mui/material'
+import { Paper } from '@mui/material'
 import { Task } from 'common/types'
 import { TaskStatuses } from 'common/enums'
 import { useSelector } from 'react-redux'
 import { tasksSelector } from 'services/reducers/tasksSlice'
 import { selectTodolists } from 'services/reducers/todolistsSlice'
 import { TodolistItem } from 'components/todolist-item'
-
-
+import { FlexContainer } from 'components/flex-container'
 
 export const Todolists = () => {
   const todolists = useSelector(selectTodolists)
@@ -23,13 +21,15 @@ export const Todolists = () => {
     }
 
     return (
-      <Box key={l.id} sx={{ padding: '19px 15px 0 0' }}>
-        <Paper sx={{ padding: '18px', width: '280px' }} elevation={1}>
-          <TodolistItem todolist={l} demo={false} tasksForTodolist={tasksForTodolist} />
-        </Paper>
-      </Box>
+      <Paper key={l.id} sx={{ padding: '18px', width: '280px' }} elevation={1}>
+        <TodolistItem todolist={l} demo={false} tasksForTodolist={tasksForTodolist} />
+      </Paper>
     )
   })
 
-  return <>{todolistsMap}</>
+  return (
+    <FlexContainer gap="16px" pd="5px" ai="flex-start" style={{ overflow: 'auto' }}>
+      {todolistsMap}
+    </FlexContainer>
+  )
 }

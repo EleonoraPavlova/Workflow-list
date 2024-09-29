@@ -5,7 +5,7 @@ import { useActions } from 'common/hooks'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-export function useApp() {
+export function useAppContainer() {
   const { setAppInitializeTC } = useActions(appThunks)
   let initialized = useSelector(selectAppInitialized) //first initialization
 

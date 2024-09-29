@@ -1,9 +1,10 @@
-export { FlexContainer } from './flex-container';
+export { FlexContainer } from './flex-container'
 export { AddItemForm } from './add-item-form'
 export { Buttons } from './buttons'
 export { SnackBar } from './snack-bar'
 export { Tasks } from './tasks'
 export { TodolistItem } from './todolist-item'
 export { TaskItem } from './task-item'
-export { Header} from './header'
-
+export { Header } from './header'
+export { TodolistTitle } from './todolist-title'
+export { Todolists } from './todolists'
