@@ -1,3 +1,3 @@
 export { TodolistsPage } from './todolists-page/todolists-page'
 export { NotFound } from './not-found/not-found'
-export { Login } from 'features/pages/login/login'
+export { Login } from './login/login'

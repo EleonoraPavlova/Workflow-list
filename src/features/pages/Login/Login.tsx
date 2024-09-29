@@ -9,7 +9,7 @@ import Button from '@mui/material/Button'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectIsLoggedIn } from 'services/reducers/authSlice'
-import { Box, Grid } from '@mui/material'
+import { Box, Grid2, Grid } from '@mui/material'
 import { useLogin } from './hooks/useLogin'
 
 type Props = {
@@ -26,7 +26,7 @@ export const Login = ({ lightMode }: Props) => {
   }, [isLoggedIn])
 
   return (
-    <Grid container justifyContent={'center'}>
+    <Grid2 container justifyContent={'center'}>
       <Grid item justifyContent={'center'}>
         <Box
           sx={{
@@ -90,6 +90,6 @@ export const Login = ({ lightMode }: Props) => {
           </form>
         </Box>
       </Grid>
-    </Grid>
+    </Grid2>
   )
 }
