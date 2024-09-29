@@ -28,7 +28,7 @@ export const TodolistItem = memo(({ demo = false, todolist, tasksForTodolist }: 
   )
 
   return (
-    <FlexContainer ai="flex-start" jc="center" fd="column">
+    <FlexContainer ai="flex-start" jc="center" fd="column" gap={'20px'}>
       <TodolistTitle disabledFor={disabledFor} todolist={todolist} />
       <AddItemForm addTask={addTask} disabled={disabledFor} label={'Type here...'} />
       <Tasks tasksForTodolist={tasksForTodolist} />

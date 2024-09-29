@@ -23,13 +23,13 @@ export const Header = ({ theme, toggleTheme }: Props) => {
   }, [logOutTC])
 
   return (
-    <AppBar position="static" sx={{ borderRadius: '5px' }}>
+    <AppBar position="static" sx={{ borderRadius: '5px', backgroundColor: '#8c61ff' }}>
       <Toolbar variant="dense" sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <FlexContainer>
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <Menu />
           </IconButton>
-          <Typography variant="h6" color="inherit" component="div">
+          <Typography variant="h6" color="inherit">
             Todolist
           </Typography>
         </FlexContainer>
