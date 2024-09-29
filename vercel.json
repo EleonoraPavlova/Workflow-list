@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "yarn build",
   "devCommand": "yarn start",
-  "installCommand": "yarn i",
+  "installCommand": "yarn install",
   "framework": "create-react-app",
   "outputDirectory": "./build"
 }
