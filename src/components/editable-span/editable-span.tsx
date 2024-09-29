@@ -5,7 +5,7 @@ type Props = {
   value: string
   additionalClass: string
   disabled?: boolean
-  isDone?: boolean | undefined // can we edit the span
+  isDone?: boolean | undefined
   onChange: (input: string) => void
 }
 
@@ -16,14 +16,13 @@ export const EditableSpan = memo(({ value, isDone, disabled, additionalClass, on
   const activateEditMode = () => {
     if (!isDone) {
       setEditMode(true)
-      setInput(value) //set a new meaning of task
+      setInput(value)
     }
   }
 
   const activateViewMode = () => {
     setEditMode(false)
-    onChange(input) //теперь новое значение таски можно прочитать:
-    // c помощью этого колбека сообщить родителю что произошло событие и передать актуальное значение input
+    onChange(input)
   }
 
   const onChangeTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {

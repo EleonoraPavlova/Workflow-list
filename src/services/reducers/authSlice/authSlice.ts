@@ -1,4 +1,3 @@
-
 import { PayloadAction, createSlice, isFulfilled } from '@reduxjs/toolkit'
 import { authApi } from 'services/api'
 import { appThunks, setAppSuccessAC } from '../appSlice'
@@ -19,13 +18,12 @@ const authSlice = createSlice({
   initialState: initialAuthState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addMatcher(
-        isFulfilled(loginTC, logOutTC, appThunks.setAppInitializeTC),
-        (state, action: PayloadAction<{ isLoggedIn: boolean }>) => {
-          state.isLoggedIn = action.payload.isLoggedIn
-        }
-      )
+    builder.addMatcher(
+      isFulfilled(loginTC, logOutTC, appThunks.setAppInitializeTC),
+      (state, action: PayloadAction<{ isLoggedIn: boolean }>) => {
+        state.isLoggedIn = action.payload.isLoggedIn
+      }
+    )
   },
   selectors: {
     selectIsLoggedIn: (state) => state.isLoggedIn,

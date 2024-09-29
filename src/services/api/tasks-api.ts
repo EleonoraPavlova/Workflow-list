@@ -1,5 +1,5 @@
+import { AddTaskParams, ResponseData, Task, UpdateTaskParams } from 'common/types'
 import { instance } from './instance'
-import { AddTaskParams, ResponseData, Task, UpdateTaskParams } from '../../common/types'
 
 type GetTaskResponse = {
   error: string
@@ -20,10 +20,6 @@ export const tasksApi = {
 
   deleteTask(params: Omit<UpdateTaskParams, 'domainModel'>) {
     return instance.delete<ResponseData>(`/todo-lists/${params.todoListId}/tasks/${params.taskId}`)
-  },
-
-  updateTaskTitle(todoListId: string, taskId: string, title: string) {
-    return instance.put<ResponseData>(`/todo-lists/${todoListId}/tasks/${taskId}`, { title: title })
   },
 
   updateTask(params: UpdateTaskParams) {

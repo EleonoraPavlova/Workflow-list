@@ -13,6 +13,5 @@ export const store = configureStore({
 
 export type AppRootState = ReturnType<typeof store.getState>
 
-
-export type AppDispatch = ThunkDispatch<AppRootState, unknown, UnknownAction> 
-export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppRootState, unknown, UnknownAction> //in thunk to dispatch other thunk and any actions(like a main type)
+export type AppDispatch = ThunkDispatch<AppRootState, unknown, UnknownAction>
+export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppRootState, unknown, UnknownAction>

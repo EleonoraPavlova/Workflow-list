@@ -19,7 +19,7 @@ type Props = {
 export const Login = ({ lightMode }: Props) => {
   const { formik } = useLogin()
   const navigate = useNavigate()
-  let isLoggedIn = useSelector(selectIsLoggedIn) //не залогинены
+  let isLoggedIn = useSelector(selectIsLoggedIn)
 
   useEffect(() => {
     if (isLoggedIn) navigate('/')

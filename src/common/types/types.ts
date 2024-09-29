@@ -60,7 +60,6 @@ export type UpdateTaskParams = {
   domainModel: Partial<UpdateTaskModel>
 }
 
-//
 export type Todolist = {
   id: string
   title: string
@@ -72,7 +71,6 @@ export type TodolistDomain = Todolist & {
   filter: FilterValues
   entityStatus: RequestStatus
 }
-
 
 export type RequestStatus = 'idle' | 'loading' | 'succeeded' | 'failed'
 

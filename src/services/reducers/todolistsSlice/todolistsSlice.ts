@@ -1,11 +1,10 @@
-
 import { createAppAsyncThunk, handleServerAppError } from 'common/utils'
-import { PayloadAction, createSlice, current } from '@reduxjs/toolkit'
-import { setAppSuccessAC } from '../appSlice'
 import { FilterValues, RequestStatus, Todolist, TodolistDomain } from 'common/types'
 import { ResultCode } from 'common/enums'
 import { clearTasksTodolists } from 'services/actions'
 import { todolistsApi } from 'services/api'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { setAppSuccessAC } from '../appSlice'
 
 type ParamUpdateTodolist = {
   todoListId: string
@@ -46,8 +45,7 @@ const todolistsSlice = createSlice({
         const index = state.todolists.findIndex((t) => t.id === action.payload.todoListId)
         if (index > -1) state.todolists[index] = { ...state.todolists[index], ...action.payload }
       })
-      .addCase(clearTasksTodolists, (state, action) => {
-        console.log('state/todolists', current(state))
+      .addCase(clearTasksTodolists, () => {
         return { todolists: [] }
       })
   },
@@ -56,8 +54,7 @@ const todolistsSlice = createSlice({
   },
 })
 
-//thunk
-const getTodolistTC = createAppAsyncThunk<{ todolists: Todolist[] }>( //doesn't work reject
+const getTodolistTC = createAppAsyncThunk<{ todolists: Todolist[] }>(
   `${todolistsSlice.name}/getTodolist`,
   async (params) => {
     const res = await todolistsApi.getTodoslists()
@@ -70,7 +67,7 @@ const removeTodolistTC = createAppAsyncThunk<{ todoListId: string }, string>(
   async (todoListId, { dispatch, rejectWithValue }) => {
     dispatch(changeStatusTodolistAC({ entityStatus: 'loading', todoListId }))
     const res = await todolistsApi.deleteTodoslist(todoListId).finally(() => {
-      dispatch(changeStatusTodolistAC({ entityStatus: 'idle', todoListId })) // undisable button delete
+      dispatch(changeStatusTodolistAC({ entityStatus: 'idle', todoListId }))
     })
     if (res.data.resultCode === ResultCode.SUCCEEDED) {
       dispatch(setAppSuccessAC({ success: 'todolist was successful removed' }))

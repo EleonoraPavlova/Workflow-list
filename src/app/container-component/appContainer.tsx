@@ -8,7 +8,7 @@ import { selectAppInitialized } from 'services/reducers/appSlice'
 import { RoutesComponent } from 'features/routers'
 
 type Props = {
-  demo?: boolean //download moc state
+  demo?: boolean
 }
 
 export const AppContainer = ({ demo = false }: Props) => {

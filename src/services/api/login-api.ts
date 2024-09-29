@@ -1,5 +1,5 @@
+import { LoginParams, ResponseData } from 'common/types'
 import { instance } from './instance'
-import { LoginParams, ResponseData } from '../../common/types'
 
 type CheckAuthResponse = {
   id: number
@@ -12,7 +12,7 @@ export const authApi = {
     return instance.post<ResponseData<{ userId?: number }>>('auth/login', params)
   },
 
-  checkAuthMe() {
+  me() {
     return instance.get<ResponseData<CheckAuthResponse>>('/auth/me')
   },
 

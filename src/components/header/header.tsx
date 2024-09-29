@@ -15,7 +15,7 @@ type Props = {
 
 export const Header = ({ theme, toggleTheme }: Props) => {
   let status = useSelector(selectAppStatus)
-  let isLoggedIn = useSelector(selectIsLoggedIn) //не залогинены
+  let isLoggedIn = useSelector(selectIsLoggedIn)
   const { logOutTC } = useActions(authThunks)
 
   const logOutHandler = useCallback(() => {

@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 export function useTodolistPage() {
-  let isLoggedIn = useSelector(selectIsLoggedIn) //не залогинены
+  let isLoggedIn = useSelector(selectIsLoggedIn)
 
   const { addTodolistTC, getTodolistTC } = useActions(todolistsThunks)
   const { getTasksTC } = useActions(tasksThunks)
@@ -17,9 +17,7 @@ export function useTodolistPage() {
 
   const addTodoList = useCallback(
     (input: string) => {
-      let res = addTodolistTC(input).unwrap()
-      console.log('res', res)
-      return res
+      addTodolistTC(input)
     },
     [addTodolistTC]
   )

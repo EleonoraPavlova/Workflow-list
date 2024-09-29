@@ -67,7 +67,7 @@ const appSlice = createSlice({
 const setAppInitializeTC = createAppAsyncThunk<{ isLoggedIn: boolean }, void>(
   `${appSlice.name}/appInitialize`,
   async (_, { rejectWithValue }) => {
-    const res = await authApi.checkAuthMe()
+    const res = await authApi.me()
     if (res.data.resultCode === ResultCode.SUCCEEDED) {
       return { isLoggedIn: true } //anonymous or not
     } else {
