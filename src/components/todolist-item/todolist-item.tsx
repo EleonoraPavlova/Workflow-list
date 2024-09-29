@@ -18,19 +18,19 @@ type Props = {
 export const TodolistItem = memo(({ demo = false, todolist, tasksForTodolist }: Props) => {
   const { entityStatus, id } = todolist
   const { addTaskTC } = useActions(tasksThunks)
-  let disabledFor = entityStatus === 'loading'
+  let disabled = entityStatus === 'loading'
 
   const addTask = useCallback(
-    (title: string) => {
-      return addTaskTC({ title, todoListId: id }).unwrap()
+    async (title: string) => {
+      await addTaskTC({ title, todoListId: id })
     },
     [addTaskTC, id]
   )
 
   return (
     <FlexContainer ai="flex-start" jc="center" fd="column" gap={'20px'}>
-      <TodolistTitle disabledFor={disabledFor} todolist={todolist} />
-      <AddItemForm addTask={addTask} disabled={disabledFor} label={'Type here...'} />
+      <TodolistTitle disabledFor={disabled} todolist={todolist} />
+      <AddItemForm addTask={addTask} disabled={disabled} label={'Type here...'} />
       <Tasks tasksForTodolist={tasksForTodolist} />
       <Box sx={{ display: 'flex', gap: '15px' }}>
         <Buttons todolist={todolist} />

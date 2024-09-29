@@ -6,7 +6,7 @@ import { useAddItemForm } from './hooks/useAddItemForm'
 type Props = {
   disabled?: boolean
   label: string
-  addTask: (inputValue: string) => Promise<any>
+  addTask: (inputValue: string) => Promise<void>
 }
 
 export const AddItemForm = ({ disabled = false, label, addTask }: Props) => {

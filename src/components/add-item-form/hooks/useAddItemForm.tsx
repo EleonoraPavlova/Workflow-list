@@ -1,7 +1,7 @@
 import { ResponseData } from 'common/types'
 import { ChangeEvent, useState, KeyboardEvent, useCallback } from 'react'
 
-export function useAddItemForm(addTask: (taskName: string) => Promise<any>) {
+export function useAddItemForm(addTask: (title: string) => Promise<void>) {
   let [error, setError] = useState<string | null>(null)
   let [inputValue, setInputValue] = useState<string>('')
 
