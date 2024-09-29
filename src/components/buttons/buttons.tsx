@@ -1,9 +1,9 @@
 import { memo } from 'react'
-import {  Button } from '@mui/material'
 import { FilterValues, TodolistDomain } from 'common/types'
 import { useActions } from 'common/hooks'
 import { todolistsThunks } from 'services/reducers/todolistsSlice'
 import { FlexContainer } from 'components/flex-container'
+import { Button } from 'components'
 
 type Props = {
   todolist: TodolistDomain
@@ -18,27 +18,20 @@ export const Buttons = memo(({ todolist }: Props) => {
   }
 
   return (
-    <FlexContainer gap='10px' >
+    <FlexContainer gap="10px">
+      <Button variant={filter === 'all' ? 'primary' : 'standart'} onClick={() => changeTodoListFilter(id, 'all')}>
+        All
+      </Button>
       <Button
-        size="small"
-        variant={filter === 'all' ? 'contained' : 'text'}
-        children={'All'}
-        onClick={() => changeTodoListFilter(id, 'all')}
-      />
+        variant={filter === 'incomplete' ? 'info' : 'standart'}
+        onClick={() => changeTodoListFilter(id, 'incomplete')}>
+        Incomplete
+      </Button>
       <Button
-        size="small"
-        color={'primary'}
-        variant={filter === 'incomplete' ? 'contained' : 'text'}
-        children={'Incomplete'}
-        onClick={() => changeTodoListFilter(id, 'incomplete')}
-      />
-      <Button
-        size="small"
-        color={'secondary'}
-        variant={filter === 'completed' ? 'contained' : 'text'}
-        children={'Completed'}
-        onClick={() => changeTodoListFilter(id, 'completed')}
-      />
+        variant={filter === 'completed' ? 'green' : 'standart'}
+        onClick={() => changeTodoListFilter(id, 'completed')}>
+        Completed
+      </Button>
     </FlexContainer>
   )
 })

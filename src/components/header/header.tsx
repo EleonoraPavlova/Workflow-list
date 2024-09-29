@@ -1,5 +1,5 @@
 import { Menu } from '@mui/icons-material'
-import { AppBar,  Button, IconButton, LinearProgress, Toolbar, Typography } from '@mui/material'
+import { AppBar, IconButton, Button, LinearProgress, Toolbar, Typography } from '@mui/material'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
@@ -23,17 +23,17 @@ export const Header = ({ theme, toggleTheme }: Props) => {
   }, [logOutTC])
 
   return (
-    <AppBar position="static" sx={{ borderRadius: '5px' }}>
+    <AppBar position="static" sx={{ borderRadius: '5px', backgroundColor: '#8c61ff' }}>
       <Toolbar variant="dense" sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <FlexContainer>
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <Menu />
           </IconButton>
-          <Typography variant="h6" color="inherit" component="div">
+          <Typography variant="h6" color="inherit">
             Todolist
           </Typography>
         </FlexContainer>
-        <FlexContainer jc='flex-end'>
+        <FlexContainer jc="flex-end">
           <Button variant="outlined" size="small" color={'inherit'} onClick={toggleTheme} sx={{ mr: '10px' }}>
             {theme}
           </Button>

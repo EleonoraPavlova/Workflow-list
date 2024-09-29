@@ -16,6 +16,10 @@ export const Tasks = ({ tasksForTodolist }: Props) => {
       </List>
     )
   } else {
-    return <Typography style={{ textAlign: 'center' }}>No tasks yet</Typography>
+    return (
+      <Typography variant="subtitle2" style={{ margin: '0 auto' }}>
+        No tasks yet
+      </Typography>
+    )
   }
 }
