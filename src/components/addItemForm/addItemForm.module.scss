@@ -1,0 +1,11 @@
+.addItemForm {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 20px 0;
+  align-items: baseline;
+}
+
+.error {
+  border: 1px solid red;
+}
