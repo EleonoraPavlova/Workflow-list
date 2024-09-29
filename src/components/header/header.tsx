@@ -1,5 +1,5 @@
 import { Menu } from '@mui/icons-material'
-import { AppBar,  Button, IconButton, LinearProgress, Toolbar, Typography } from '@mui/material'
+import { AppBar, Button, IconButton, LinearProgress, Toolbar, Typography } from '@mui/material'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
@@ -33,7 +33,7 @@ export const Header = ({ theme, toggleTheme }: Props) => {
             Todolist
           </Typography>
         </FlexContainer>
-        <FlexContainer jc='flex-end'>
+        <FlexContainer jc="flex-end">
           <Button variant="outlined" size="small" color={'inherit'} onClick={toggleTheme} sx={{ mr: '10px' }}>
             {theme}
           </Button>
