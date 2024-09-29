@@ -1,5 +1,5 @@
 import { IconButton, TextField } from '@mui/material'
-import s from './addItemForm.module.scss'
+import s from './add-item-form.module.scss'
 import AddTaskIcon from '@mui/icons-material/AddTask'
 import { useAddItemForm } from './hooks/useAddItemForm'
 
@@ -17,7 +17,7 @@ export const AddItemForm = ({ disabled = false, label, addTask }: Props) => {
   }
 
   return (
-    <div className={s.addItemForm}>
+    <div className={s.container}>
       <TextField
         type="text"
         label={label}
