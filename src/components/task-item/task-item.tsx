@@ -1,4 +1,4 @@
-import { ListItem, Checkbox, IconButton } from '@mui/material'
+import { ListItem, Checkbox, IconButton, Typography } from '@mui/material'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import BookmarkIcon from '@mui/icons-material/Bookmark'
 import Delete from '@mui/icons-material/Delete'
@@ -15,7 +15,7 @@ type Props = {
 }
 
 export const TaskItem = ({ task }: Props) => {
-  let { status, title } = task
+  let { status, title, addedDate } = task
 
   const { onRemoveHandler, changeTaskStatus, changeTaskTitle } = useTaskItem(task)
   const progress = status === TaskStatuses.InProgress
@@ -38,6 +38,7 @@ export const TaskItem = ({ task }: Props) => {
         disabled={progress}
         isDone={completed || progress}
       />
+      <Typography>{addedDate}</Typography>
       <IconButton aria-label="delete" onClick={onRemoveHandler} size="small" disabled={progress || completed}>
         <Delete fontSize="inherit" />
       </IconButton>
