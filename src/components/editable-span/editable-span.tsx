@@ -3,7 +3,7 @@ import { ChangeEvent, useState, KeyboardEvent, memo } from 'react'
 
 type Props = {
   value: string
-  additionalClass: string
+  additionalClass?: string
   disabled?: boolean
   isDone?: boolean | undefined
   onChange: (input: string) => void

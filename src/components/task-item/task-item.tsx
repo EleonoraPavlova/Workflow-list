@@ -9,6 +9,8 @@ import { TaskStatuses } from 'common/enums'
 
 import { EditableSpan } from 'components/editable-span'
 import s from './task-item.module.scss'
+import { formatDate } from 'common/utils'
+import { FlexContainer } from 'components/flex-container'
 
 type Props = {
   task: Task
@@ -18,30 +20,33 @@ export const TaskItem = ({ task }: Props) => {
   let { status, title, addedDate } = task
 
   const { onRemoveHandler, changeTaskStatus, changeTaskTitle } = useTaskItem(task)
-  const progress = status === TaskStatuses.InProgress
-  const completed = status === TaskStatuses.Completed
+  const isInProgress = status === TaskStatuses.InProgress
+  const isCompleted = status === TaskStatuses.Completed
 
   return (
-    <ListItem sx={{ justifyContent: 'space-between' }} className={`${s.list} ${completed || progress ? s.done : ''}`}>
+    <div className={`${s.list} ${isCompleted ? s.done : ''}`}>
       <Checkbox
-        checked={completed}
+        checked={isCompleted}
         onChange={changeTaskStatus}
         icon={<BookmarkBorderIcon />}
         checkedIcon={<BookmarkIcon />}
         color="success"
-        disabled={progress}
+        disabled={isInProgress}
       />
-      <EditableSpan
-        value={title}
-        additionalClass={s.editableSpan}
-        onChange={changeTaskTitle}
-        disabled={progress}
-        isDone={completed || progress}
-      />
-      <Typography>{addedDate}</Typography>
-      <IconButton aria-label="delete" onClick={onRemoveHandler} size="small" disabled={progress || completed}>
+      <FlexContainer gap="4px" fd="column" ai="flex-start">
+        <EditableSpan
+          value={title}
+          onChange={changeTaskTitle}
+          disabled={isInProgress}
+          isDone={isCompleted || isInProgress}
+        />
+        <Typography variant="caption" sx={{ lineHeight: 0.5 }}>
+          {formatDate(addedDate)}
+        </Typography>
+      </FlexContainer>
+      <IconButton aria-label="delete" onClick={onRemoveHandler} size="small" disabled={isInProgress || isCompleted}>
         <Delete fontSize="inherit" />
       </IconButton>
-    </ListItem>
+    </div>
   )
 }
