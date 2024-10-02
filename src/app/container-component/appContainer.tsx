@@ -7,11 +7,7 @@ import { useAppContainer } from 'app/hooks/useAppContainer'
 import { selectAppInitialized } from 'services/reducers/appSlice'
 import { RoutesComponent } from 'features/routers'
 
-type Props = {
-  demo?: boolean
-}
-
-export const AppContainer = ({ demo = false }: Props) => {
+export const AppContainer = () => {
   let initialized = useSelector(selectAppInitialized) //first initialization
 
   const { lightMode, themeHandler, theme, CustomCircularProgress, toggleTheme } = useAppContainer()

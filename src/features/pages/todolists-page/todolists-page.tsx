@@ -4,11 +4,10 @@ import { Todolists } from 'components/todolists'
 import s from './todolist-page.module.scss'
 
 type Props = {
-  demo?: boolean
   lightMode: boolean
 }
 
-export const TodolistsPage = ({ demo = false, lightMode }: Props) => {
+export const TodolistsPage = ({ lightMode }: Props) => {
   const { addTodoList } = useTodolistPage()
 
   return (

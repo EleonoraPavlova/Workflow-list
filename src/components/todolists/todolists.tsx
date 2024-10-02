@@ -22,7 +22,7 @@ export const Todolists = () => {
 
     return (
       <Paper key={l.id} sx={{ padding: '18px', width: '280px' }} elevation={1}>
-        <TodolistItem todolist={l} demo={false} tasksForTodolist={tasksForTodolist} />
+        <TodolistItem todolist={l} tasksForTodolist={tasksForTodolist} />
       </Paper>
     )
   })

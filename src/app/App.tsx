@@ -1,6 +1,6 @@
 import { AppContainer } from './container-component'
 
 export const App = () => {
-  return <AppContainer demo={true} />
+  return <AppContainer />
 }
 export default App

@@ -29,10 +29,28 @@ export const Header = ({ theme, toggleTheme }: Props) => {
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <Menu />
           </IconButton>
-          <Typography variant="h6" color="inherit">
-            Todolist
-          </Typography>
+          <Typography variant="h6">Todolist</Typography>
         </FlexContainer>
+        {!isLoggedIn && (
+          <FlexContainer jc="flex-end">
+            <Button
+              variant="outlined"
+              size="small"
+              color={'inherit'}
+              onClick={() => console.log('demo')}
+              sx={{ mr: '10px' }}>
+              demo
+            </Button>
+            <Button
+              variant="outlined"
+              size="small"
+              color={'inherit'}
+              onClick={() => console.log('real date')}
+              sx={{ mr: '10px' }}>
+              real date
+            </Button>
+          </FlexContainer>
+        )}
         <FlexContainer jc="flex-end">
           <Button variant="outlined" size="small" color={'inherit'} onClick={toggleTheme} sx={{ mr: '10px' }}>
             {theme}

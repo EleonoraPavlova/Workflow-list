@@ -12,10 +12,9 @@ import { FlexContainer } from 'components/flex-container'
 type Props = {
   todolist: TodolistDomain
   tasksForTodolist: Task[]
-  demo: boolean
 }
 
-export const TodolistItem = memo(({ demo = false, todolist, tasksForTodolist }: Props) => {
+export const TodolistItem = memo(({ todolist, tasksForTodolist }: Props) => {
   const { entityStatus, id } = todolist
   const { addTaskTC } = useActions(tasksThunks)
   let disabled = entityStatus === 'loading'
