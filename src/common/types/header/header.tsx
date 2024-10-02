@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { selectAppStatus } from 'services/reducers/appSlice'
 import { authThunks, selectIsLoggedIn } from 'services/reducers/authSlice'
 import { useActions } from 'common/hooks'
-import { FlexContainer } from 'components/flex-container'
+import { FlexContainer } from 'common/ui'
 
 type Props = {
   theme: string

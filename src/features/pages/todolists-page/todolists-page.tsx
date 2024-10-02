@@ -1,7 +1,8 @@
 import { useTodolistPage } from './hooks/useTodolistsPage'
-import { AddItemForm, FlexContainer } from 'components'
+import { AddItemForm } from 'components'
 import { Todolists } from 'components/todolists'
 import s from './todolist-page.module.scss'
+import { FlexContainer } from 'common/ui'
 
 type Props = {
   lightMode: boolean
