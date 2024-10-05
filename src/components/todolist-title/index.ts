@@ -1,1 +1,1 @@
-export * from './todolist-title'
+export { TodolistTitle } from './todolist-title'

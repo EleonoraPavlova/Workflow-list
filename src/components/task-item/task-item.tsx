@@ -1,4 +1,4 @@
-import { ListItem, Checkbox, IconButton, Typography } from '@mui/material'
+import { Checkbox, IconButton, Typography } from '@mui/material'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'
 import BookmarkIcon from '@mui/icons-material/Bookmark'
 import Delete from '@mui/icons-material/Delete'
@@ -10,7 +10,7 @@ import { TaskStatuses } from 'common/enums'
 import { EditableSpan } from 'components/editable-span'
 import s from './task-item.module.scss'
 import { formatDate } from 'common/utils'
-import { FlexContainer } from 'components/flex-container'
+import { FlexContainer } from 'common/ui'
 
 type Props = {
   task: Task

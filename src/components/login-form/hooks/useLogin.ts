@@ -1,10 +1,10 @@
-import { useAppDispatch } from 'common/hooks'
+import { useActions } from 'common/hooks'
 import { useFormik } from 'formik'
 import { authThunks } from 'services/reducers/authSlice'
 import { LoginParams, ResponseData, ThunkErrorApiConfig } from 'common/types'
 
 export function useLogin() {
-  const dispatch = useAppDispatch()
+  const { loginTC } = useActions(authThunks)
 
   const formik = useFormik({
     validate: (values) => {
@@ -34,7 +34,7 @@ export function useLogin() {
     onSubmit: (values, { setFieldError, setSubmitting }) => {
       setSubmitting(true)
 
-      dispatch(authThunks.loginTC(values))
+      loginTC(values)
         .unwrap()
         .then(() => {})
         .catch((data: ResponseData | ThunkErrorApiConfig | { message: string }) => {

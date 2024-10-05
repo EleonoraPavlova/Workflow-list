@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { tasksSelector } from 'services/reducers/tasksSlice'
 import { selectTodolists } from 'services/reducers/todolistsSlice'
 import { TodolistItem } from 'components/todolist-item'
-import { FlexContainer } from 'components/flex-container'
+import { FlexContainer } from 'common/ui'
 
 export const Todolists = () => {
   const todolists = useSelector(selectTodolists)

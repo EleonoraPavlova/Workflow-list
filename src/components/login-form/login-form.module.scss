@@ -1,0 +1,28 @@
+.form {
+  padding: 25px;
+  border-radius: 5px;
+  color: var(--color-dark-500);
+}
+
+.formGroup,
+.formControl {
+  gap: 10px;
+}
+
+.light {
+  background-color: var(--color-light-100);
+}
+
+.dark {
+  background-color: var(--color-dark-700);
+  color: var(--color-light-900);
+}
+
+.h6 {
+  color: var(--color-danger-500);
+  margin: 0px;
+}
+
+.button {
+  color: var(--color-light-100);
+}

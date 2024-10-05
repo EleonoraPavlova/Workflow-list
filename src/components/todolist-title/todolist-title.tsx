@@ -6,7 +6,7 @@ import { TodolistDomain } from 'common/types'
 import { EditableSpan } from 'components/editable-span'
 import { useActions } from 'common/hooks'
 import { todolistsThunks } from 'services/reducers/todolistsSlice'
-import { FlexContainer } from 'components/flex-container'
+import { FlexContainer } from 'common/ui'
 
 type Props = {
   todolist: TodolistDomain

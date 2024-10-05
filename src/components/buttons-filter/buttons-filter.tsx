@@ -2,14 +2,15 @@ import { memo } from 'react'
 import { FilterValues, TodolistDomain } from 'common/types'
 import { useActions } from 'common/hooks'
 import { todolistsThunks } from 'services/reducers/todolistsSlice'
-import { FlexContainer } from 'components/flex-container'
+
 import { Button } from 'components'
+import { FlexContainer } from 'common/ui'
 
 type Props = {
   todolist: TodolistDomain
 }
 
-export const Buttons = memo(({ todolist }: Props) => {
+export const ButtonsFilter = memo(({ todolist }: Props) => {
   const { filter, title, id } = todolist
   const { updateTodolistTC } = useActions(todolistsThunks)
 

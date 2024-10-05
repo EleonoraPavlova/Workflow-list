@@ -1,11 +1,10 @@
 import { ThemeProvider } from '@mui/material'
 import { useSelector } from 'react-redux'
 
-import { FlexContainer } from 'components/flex-container'
-import { Header, SnackBar } from 'components'
 import { useAppContainer } from 'app/hooks/useAppContainer'
 import { selectAppInitialized } from 'services/reducers/appSlice'
 import { RoutesComponent } from 'features/routers'
+import { FlexContainer, Header, SnackBar } from 'common/ui'
 
 export const AppContainer = () => {
   let initialized = useSelector(selectAppInitialized) //first initialization
