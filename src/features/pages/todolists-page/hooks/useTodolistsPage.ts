@@ -6,8 +6,10 @@ import { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { tasksThunks } from 'services/reducers/tasksSlice'
+import { startStateTodolists } from 'moc/initialState/todolistsStartState'
+import { startStateTasks } from 'moc/initialState/tasksStartState'
 
-export function useTodolistPage() {
+export function useTodolistPage({ demo }: { demo: boolean }) {
   let isLoggedIn = useSelector(selectIsLoggedIn)
 
   const { addTodolistTC, getTodolistTC } = useActions(todolistsThunks)
@@ -28,6 +30,15 @@ export function useTodolistPage() {
 
   useEffect(() => {
     const getTodos = async () => {
+      if (demo) {
+        const response = startStateTodolists
+        response.todolists.forEach((t: Todolist) => {
+          const tasksForTodolist = startStateTasks[t.id] || []
+          console.log('tasksForTodolist', tasksForTodolist)
+        })
+        return
+      }
+
       const res = await getTodolistTC()
       if (todolistsThunks.getTodolistTC.fulfilled.match(res)) {
         const todolists = res.payload.todolists as Todolist[]
@@ -37,7 +48,7 @@ export function useTodolistPage() {
       }
     }
     getTodos()
-  }, [])
+  }, [demo])
 
   return { addTodoList }
 }

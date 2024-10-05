@@ -7,7 +7,11 @@ import { selectTodolists } from 'services/reducers/todolistsSlice'
 import { TodolistItem } from 'components/todolist-item'
 import { FlexContainer } from 'common/ui'
 
-export const Todolists = () => {
+type Props = {
+  demo: boolean
+}
+
+export const Todolists = ({ demo }: Props) => {
   const todolists = useSelector(selectTodolists)
   const tasks = useSelector(tasksSelector)
 
