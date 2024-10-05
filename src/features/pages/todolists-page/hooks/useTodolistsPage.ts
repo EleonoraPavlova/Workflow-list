@@ -25,17 +25,20 @@ export function useTodolistPage({ demo }: { demo: boolean }) {
   )
 
   useEffect(() => {
-    if (!isLoggedIn) navigate('/login')
+    if (!isLoggedIn && !demo) navigate('/login')
   }, [isLoggedIn])
 
   useEffect(() => {
     const getTodos = async () => {
       if (demo) {
         const response = startStateTodolists
-        response.todolists.forEach((t: Todolist) => {
-          const tasksForTodolist = startStateTasks[t.id] || []
-          console.log('tasksForTodolist', tasksForTodolist)
+        const todosWithTasks = response.todolists.map((t: Todolist) => {
+          return {
+            ...t,
+            tasks: startStateTasks[t.id] || [],
+          }
         })
+        console.log('Todos with tasks in demo mode:', todosWithTasks)
         return
       }
 

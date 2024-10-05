@@ -1,9 +1,8 @@
 import { Menu } from '@mui/icons-material'
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material'
-import { useCallback, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useCallback } from 'react'
 
-import { authThunks, selectIsLoggedIn } from 'services/reducers/authSlice'
+import { authThunks } from 'services/reducers/authSlice'
 import { useActions } from 'common/hooks'
 import { FlexContainer } from '../flex-container'
 import { HeaderButtons } from 'components'
@@ -11,12 +10,12 @@ import { useNavigate } from 'react-router-dom'
 
 type Props = {
   theme: string
+  demo: boolean
   toggleTheme: () => void
   setDemo: (demo: boolean) => void
 }
 
-export const Header = ({ theme, toggleTheme, setDemo }: Props) => {
-  let isLoggedIn = useSelector(selectIsLoggedIn)
+export const Header = ({ theme, demo, toggleTheme, setDemo }: Props) => {
   const navigate = useNavigate()
   const { logOutTC } = useActions(authThunks)
 
@@ -29,7 +28,7 @@ export const Header = ({ theme, toggleTheme, setDemo }: Props) => {
     navigate('/')
   }, [navigate, setDemo])
 
-  console.log('demo')
+  console.log('demo', demo)
   return (
     <AppBar position="static" sx={{ borderRadius: '5px', backgroundColor: '#8c61ff' }}>
       <Toolbar variant="dense" sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -40,9 +39,10 @@ export const Header = ({ theme, toggleTheme, setDemo }: Props) => {
           <Typography variant="h6">Todolist</Typography>
         </FlexContainer>
         <HeaderButtons
-          isLoggedIn={isLoggedIn}
+          demo={demo}
           theme={theme}
           toggleTheme={toggleTheme}
+          setDemo={setDemo}
           logOutHandler={logOutHandler}
           downloadDemo={downloadDemoHandler}
         />

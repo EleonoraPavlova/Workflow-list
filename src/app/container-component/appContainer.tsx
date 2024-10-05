@@ -23,7 +23,7 @@ export const AppContainer = () => {
   }
   return (
     <ThemeProvider theme={themeHandler}>
-      <Header theme={theme} toggleTheme={toggleTheme} setDemo={setDemo} />
+      <Header theme={theme} toggleTheme={toggleTheme} setDemo={setDemo} demo={demo} />
       <RoutesComponent demo={demo} lightMode={lightMode} />
       <SnackBar />
     </ThemeProvider>

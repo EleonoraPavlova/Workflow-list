@@ -2,24 +2,14 @@ import { ArrowDownward, ArrowUpward } from '@mui/icons-material'
 import { Button, Typography } from '@mui/material'
 import { Task } from 'common/types'
 import { TaskItem } from 'components/task-item'
-import { useState } from 'react'
+import { useTasks } from './hooks/useTasks'
 
 type Props = {
   tasksForTodolist: Task[]
 }
 
 export const Tasks = ({ tasksForTodolist }: Props) => {
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc')
-
-  const toggleSortDirection = () => {
-    setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
-  }
-
-  const sortedTasks = [...tasksForTodolist].sort((a, b) => {
-    const dateA = new Date(a.addedDate).getTime()
-    const dateB = new Date(b.addedDate).getTime()
-    return sortDirection === 'asc' ? dateA - dateB : dateB - dateA
-  })
+  const { sortDirection, sortedTasks, toggleSortDirection } = useTasks(tasksForTodolist)
 
   return (
     <>
