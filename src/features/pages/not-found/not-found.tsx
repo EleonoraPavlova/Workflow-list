@@ -1,17 +1,14 @@
 import { Typography } from '@mui/material'
+import { FlexContainer, Page } from 'common/ui'
 
 export const NotFound = () => {
   return (
-    <Typography
-      variant="h5"
-      sx={{
-        padding: '50px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#c2c5cc',
-      }}>
-      404: PAGE NOT FOUND
-    </Typography>
+    <Page>
+      <FlexContainer jc="center">
+        <Typography variant="h5" sx={{ color: '#c2c5cc' }}>
+          404: PAGE NOT FOUND
+        </Typography>
+      </FlexContainer>
+    </Page>
   )
 }

@@ -1,12 +1,12 @@
 import { Menu } from '@mui/icons-material'
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@mui/material'
+import { AppBar, IconButton, Toolbar, Typography } from '@mui/material'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 
 import { authThunks, selectIsLoggedIn } from 'services/reducers/authSlice'
 import { useActions } from 'common/hooks'
 import { FlexContainer } from '../flex-container'
+import { HeaderButtons } from 'components'
 
 type Props = {
   theme: string
@@ -30,38 +30,8 @@ export const Header = ({ theme, toggleTheme }: Props) => {
           </IconButton>
           <Typography variant="h6">Todolist</Typography>
         </FlexContainer>
-        {!isLoggedIn && (
-          <FlexContainer jc="flex-end">
-            <Button
-              variant="outlined"
-              size="small"
-              color={'inherit'}
-              onClick={() => console.log('demo')}
-              sx={{ mr: '10px' }}>
-              demo
-            </Button>
-            <Button
-              variant="outlined"
-              size="small"
-              color={'inherit'}
-              onClick={() => console.log('real date')}
-              sx={{ mr: '10px' }}>
-              real date
-            </Button>
-          </FlexContainer>
-        )}
-        <FlexContainer jc="flex-end">
-          <Button variant="outlined" size="small" color={'inherit'} onClick={toggleTheme} sx={{ mr: '10px' }}>
-            {theme}
-          </Button>
-          {isLoggedIn && (
-            <Button variant="outlined" size="small" color={'inherit'} onClick={logOutHandler} sx={{ mr: '10px' }}>
-              <NavLink to="/login">Log Out</NavLink>
-            </Button>
-          )}
-        </FlexContainer>
+        <HeaderButtons isLoggedIn={isLoggedIn} theme={theme} toggleTheme={toggleTheme} logOutHandler={logOutHandler} />
       </Toolbar>
-      {/* {status === 'loading' && <LinearProgress />} */}
     </AppBar>
   )
 }

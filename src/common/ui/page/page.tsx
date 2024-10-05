@@ -13,7 +13,7 @@ type Props = {
 type RefProps = ElementRef<'div'>
 
 export const Page = forwardRef<RefProps, Props>((props, ref) => {
-  const { className, mt = '44px', style, ...rest } = props
+  const { className, mt = '40px', style, ...rest } = props
   let status = useSelector(selectAppStatus)
 
   const cn = clsx(s.page, className)
@@ -22,7 +22,16 @@ export const Page = forwardRef<RefProps, Props>((props, ref) => {
 
   return (
     <>
-      {status === 'loading' && <LinearProgress />}
+      {status === 'loading' && (
+        <LinearProgress
+          sx={{
+            backgroundColor: 'transparent',
+            '& .MuiLinearProgress-bar': {
+              backgroundColor: '#8c61ff',
+            },
+          }}
+        />
+      )}
       <div className={cn} ref={ref} style={pageStyles} {...rest} />
     </>
   )

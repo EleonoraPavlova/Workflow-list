@@ -9,8 +9,8 @@ import Button from '@mui/material/Button'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectIsLoggedIn } from 'services/reducers/authSlice'
-import { Box } from '@mui/material'
 import { useLogin } from './hooks/useLogin'
+import { FlexContainer } from 'common/ui'
 import s from './login-form.module.scss'
 
 type Props = {
@@ -25,34 +25,32 @@ export const LoginForm = ({ lightMode }: Props) => {
   useEffect(() => {
     if (isLoggedIn) navigate('/')
   }, [isLoggedIn])
-
+  console.log('isLoggedIn', isLoggedIn)
   return (
     <form onSubmit={formik.handleSubmit} className={`${s.form} ${lightMode ? s.light : s.dark}`}>
-      <FormControl>
+      <FormControl className={s.formControl}>
         <FormLabel sx={{ textAlign: 'center' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '10px', height: '45px' }}>
-            <span>Email:</span> <h6>free@samuraijs.com</h6>
-          </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px', height: '30px' }}>
-            <span>Password:</span> <h6>free</h6>
-          </Box>
+          <FlexContainer gap={'10px'} ai={'flex-start'} fd={'column'}>
+            <span> Email: free@samuraijs.com</span>
+            <span>Password: free</span>
+          </FlexContainer>
         </FormLabel>
-        <FormGroup>
+        <FormGroup className={s.formGroup}>
           <TextField
             label="Email"
-            margin="normal"
+            margin="none"
             autoComplete="email"
             error={!!(formik.touched.email && formik.errors.email)}
             {...formik.getFieldProps('email')}
           />
 
           {formik.touched.email && formik.errors.email ? (
-            <h6 style={{ color: 'red', margin: '0px' }}>{formik.touched.email && formik.errors.email}</h6>
+            <h6 className={s.h6}>{formik.touched.email && formik.errors.email}</h6>
           ) : null}
 
           <TextField
             label="Password"
-            margin="normal"
+            margin="none"
             type="password"
             autoComplete="password"
             error={!!(formik.touched.password && formik.errors.password)}
@@ -60,20 +58,21 @@ export const LoginForm = ({ lightMode }: Props) => {
           />
 
           {formik.touched.password && formik.errors.password ? (
-            <h6 style={{ color: 'red', margin: '0px' }}>{formik.touched.password && formik.errors.password}</h6>
+            <h6 className={s.h6}>{formik.touched.password && formik.errors.password}</h6>
           ) : null}
 
           <FormControlLabel
             label={'Remember me'}
             control={<Checkbox {...formik.getFieldProps('rememberMe')} checked={formik.values.rememberMe} />}
-            sx={{ marginBottom: '15px', color: lightMode ? '#1e1e1e' : 'white' }}
+            color={'inherit'}
+            className={`${lightMode ? s.light : s.dark}`}
           />
 
           <Button
             type={'submit'}
             variant={'contained'}
             color={'primary'}
-            sx={{ color: 'white', margin: '20px 0' }}
+            className={s.button}
             disabled={formik.isSubmitting || !(formik.dirty && formik.isValid)}>
             Login
           </Button>

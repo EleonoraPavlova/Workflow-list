@@ -1,7 +1,12 @@
 .form {
-  padding: 10px 25px;
-  margin-top: 10px;
+  padding: 25px;
   border-radius: 5px;
+  color: var(--color-dark-500);
+}
+
+.formGroup,
+.formControl {
+  gap: 10px;
 }
 
 .light {
@@ -10,4 +15,14 @@
 
 .dark {
   background-color: var(--color-dark-700);
+  color: var(--color-light-900);
+}
+
+.h6 {
+  color: var(--color-danger-500);
+  margin: 0px;
+}
+
+.button {
+  color: var(--color-light-100);
 }

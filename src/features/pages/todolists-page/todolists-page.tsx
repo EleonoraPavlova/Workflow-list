@@ -2,7 +2,7 @@ import { useTodolistPage } from './hooks/useTodolistsPage'
 import { AddItemForm } from 'components'
 import { Todolists } from 'components/todolists'
 import s from './todolist-page.module.scss'
-import { FlexContainer } from 'common/ui'
+import { FlexContainer, Page } from 'common/ui'
 
 type Props = {
   lightMode: boolean
@@ -12,13 +12,15 @@ export const TodolistsPage = ({ lightMode }: Props) => {
   const { addTodoList } = useTodolistPage()
 
   return (
-    <FlexContainer gap="34px" fd="column">
-      <FlexContainer jc="center">
-        <div className={lightMode ? '' : s.addItemForm}>
-          <AddItemForm addTask={addTodoList} label={"Todolist's name"} />
-        </div>
+    <Page>
+      <FlexContainer gap="30px" fd="column">
+        <FlexContainer jc="center">
+          <div className={lightMode ? '' : s.addItemForm}>
+            <AddItemForm addTask={addTodoList} label={"Todolist's name"} />
+          </div>
+        </FlexContainer>
+        <Todolists />
       </FlexContainer>
-      <Todolists />
-    </FlexContainer>
+    </Page>
   )
 }
