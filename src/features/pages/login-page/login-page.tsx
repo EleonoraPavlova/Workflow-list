@@ -8,7 +8,7 @@ type Props = {
 export const LoginPage = ({ lightMode }: Props) => {
   return (
     <Page>
-      <FlexContainer jc="center">
+      <FlexContainer jc="center" fd={'column'}>
         <LoginForm lightMode={lightMode} />
       </FlexContainer>
     </Page>

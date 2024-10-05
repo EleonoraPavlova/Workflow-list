@@ -6,10 +6,11 @@ import { FlexContainer, Page } from 'common/ui'
 
 type Props = {
   lightMode: boolean
+  demo: boolean
 }
 
-export const TodolistsPage = ({ lightMode }: Props) => {
-  const { addTodoList } = useTodolistPage()
+export const TodolistsPage = ({ lightMode, demo }: Props) => {
+  const { addTodoList } = useTodolistPage({ demo })
 
   return (
     <Page>
@@ -19,7 +20,7 @@ export const TodolistsPage = ({ lightMode }: Props) => {
             <AddItemForm addTask={addTodoList} label={"Todolist's name"} />
           </div>
         </FlexContainer>
-        <Todolists />
+        <Todolists demo={demo} />
       </FlexContainer>
     </Page>
   )

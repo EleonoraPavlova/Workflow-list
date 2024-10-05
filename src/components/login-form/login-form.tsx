@@ -31,7 +31,7 @@ export const LoginForm = ({ lightMode }: Props) => {
       <FormControl className={s.formControl}>
         <FormLabel sx={{ textAlign: 'center' }}>
           <FlexContainer gap={'10px'} ai={'flex-start'} fd={'column'}>
-            <span> Email: free@samuraijs.com</span>
+            <span> Email: free@samuraijs.com (for real data)</span>
             <span>Password: free</span>
           </FlexContainer>
         </FormLabel>
@@ -40,6 +40,7 @@ export const LoginForm = ({ lightMode }: Props) => {
             label="Email"
             margin="none"
             autoComplete="email"
+            className={s.textField}
             error={!!(formik.touched.email && formik.errors.email)}
             {...formik.getFieldProps('email')}
           />
@@ -64,14 +65,13 @@ export const LoginForm = ({ lightMode }: Props) => {
           <FormControlLabel
             label={'Remember me'}
             control={<Checkbox {...formik.getFieldProps('rememberMe')} checked={formik.values.rememberMe} />}
-            color={'inherit'}
             className={`${lightMode ? s.light : s.dark}`}
           />
 
           <Button
             type={'submit'}
             variant={'contained'}
-            color={'primary'}
+            sx={{ backgroundColor: '#8c61ff' }}
             className={s.button}
             disabled={formik.isSubmitting || !(formik.dirty && formik.isValid)}>
             Login

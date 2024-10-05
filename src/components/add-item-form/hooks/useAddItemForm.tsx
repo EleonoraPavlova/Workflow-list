@@ -3,7 +3,7 @@ import { ChangeEvent, useState, KeyboardEvent, useCallback } from 'react'
 
 export function useAddItemForm(addTask: (title: string) => Promise<void>) {
   let [error, setError] = useState<string | null>(null)
-  let [inputValue, setInputValue] = useState<string>('')
+  let [inputValue, setInputValue] = useState('')
 
   const addItemHandler = useCallback(
     (title: string) => {

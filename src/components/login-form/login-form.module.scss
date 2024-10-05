@@ -20,9 +20,14 @@
 
 .h6 {
   color: var(--color-danger-500);
+  line-height: 0.5;
+  padding-bottom: 4px;
   margin: 0px;
 }
 
 .button {
   color: var(--color-light-100);
+  &:hover {
+    background-color: var(--color-accent-300);
+  }
 }
