@@ -28,7 +28,6 @@ export const Header = ({ theme, demo, toggleTheme, setDemo }: Props) => {
     navigate('/')
   }, [navigate, setDemo])
 
-  console.log('demo', demo)
   return (
     <AppBar position="static" sx={{ borderRadius: '5px', backgroundColor: '#8c61ff' }}>
       <Toolbar variant="dense" sx={{ display: 'flex', justifyContent: 'space-between' }}>

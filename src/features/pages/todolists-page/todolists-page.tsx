@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { useTodolistPage } from './hooks/useTodolistsPage'
 import { AddItemForm } from 'components'
 import { Todolists } from 'components/todolists'
-import s from './todolist-page.module.scss'
 import { FlexContainer, Page } from 'common/ui'
+import { Typography } from '@mui/material'
+import { selectIsLoggedIn } from 'services/reducers/authSlice'
+import s from './todolist-page.module.scss'
 
 type Props = {
   lightMode: boolean
@@ -10,7 +15,13 @@ type Props = {
 }
 
 export const TodolistsPage = ({ lightMode, demo }: Props) => {
-  const { addTodoList } = useTodolistPage({ demo })
+  const { todosDemo, addTodoList } = useTodolistPage({ demo })
+  let isLoggedIn = useSelector(selectIsLoggedIn)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!isLoggedIn && !demo) navigate('/login')
+  }, [isLoggedIn])
 
   return (
     <Page>
@@ -20,7 +31,8 @@ export const TodolistsPage = ({ lightMode, demo }: Props) => {
             <AddItemForm addTask={addTodoList} label={"Todolist's name"} />
           </div>
         </FlexContainer>
-        <Todolists demo={demo} />
+        {demo && <Typography sx={{ color: '#8c61ff' }}>limited functionality in demo</Typography>}
+        <Todolists demo={demo} todosDemo={todosDemo} />
       </FlexContainer>
     </Page>
   )

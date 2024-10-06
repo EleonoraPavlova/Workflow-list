@@ -6,9 +6,6 @@ import FormGroup from '@mui/material/FormGroup'
 import FormLabel from '@mui/material/FormLabel'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { selectIsLoggedIn } from 'services/reducers/authSlice'
 import { useLogin } from './hooks/useLogin'
 import { FlexContainer } from 'common/ui'
 import s from './login-form.module.scss'
@@ -19,13 +16,7 @@ type Props = {
 
 export const LoginForm = ({ lightMode }: Props) => {
   const { formik } = useLogin()
-  const navigate = useNavigate()
-  let isLoggedIn = useSelector(selectIsLoggedIn)
 
-  useEffect(() => {
-    if (isLoggedIn) navigate('/')
-  }, [isLoggedIn])
-  console.log('isLoggedIn', isLoggedIn)
   return (
     <form onSubmit={formik.handleSubmit} className={`${s.form} ${lightMode ? s.light : s.dark}`}>
       <FormControl className={s.formControl}>

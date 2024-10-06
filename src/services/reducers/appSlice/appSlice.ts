@@ -40,7 +40,6 @@ const appSlice = createSlice({
       })
       .addMatcher(isRejected, (state, action: any) => {
         state.status = 'failed'
-        console.log('action', action)
         if (action.payload) {
           if (
             action.type === todolistsThunks.addTodolistTC.rejected.type ||

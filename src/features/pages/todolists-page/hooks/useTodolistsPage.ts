@@ -1,21 +1,17 @@
-import { selectIsLoggedIn } from 'services/reducers/authSlice'
 import { todolistsThunks } from 'services/reducers/todolistsSlice'
 import { useActions } from 'common/hooks'
-import { Todolist } from 'common/types'
-import { useCallback, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { DemoTodolist, Todolist } from 'common/types'
+import { useCallback, useEffect, useState } from 'react'
+
 import { tasksThunks } from 'services/reducers/tasksSlice'
-import { startStateTodolists } from 'moc/initialState/todolistsStartState'
-import { startStateTasks } from 'moc/initialState/tasksStartState'
+import { mockTasks } from 'moc/initialState/mockTasks'
+import { mockTodolists } from 'moc/initialState/mockTodolists'
 
 export function useTodolistPage({ demo }: { demo: boolean }) {
-  let isLoggedIn = useSelector(selectIsLoggedIn)
+  const [todosDemo, setTodosDemo] = useState<DemoTodolist[]>([])
 
   const { addTodolistTC, getTodolistTC } = useActions(todolistsThunks)
   const { getTasksTC } = useActions(tasksThunks)
-
-  const navigate = useNavigate()
 
   const addTodoList = useCallback(
     async (input: string) => {
@@ -25,20 +21,14 @@ export function useTodolistPage({ demo }: { demo: boolean }) {
   )
 
   useEffect(() => {
-    if (!isLoggedIn && !demo) navigate('/login')
-  }, [isLoggedIn])
-
-  useEffect(() => {
     const getTodos = async () => {
       if (demo) {
-        const response = startStateTodolists
-        const todosWithTasks = response.todolists.map((t: Todolist) => {
-          return {
-            ...t,
-            tasks: startStateTasks[t.id] || [],
-          }
+        const response = mockTodolists
+        const todosWithTasks = response.todolists.map((t) => {
+          const tasks = mockTasks[t.id]
+          return { ...t, tasks }
         })
-        console.log('Todos with tasks in demo mode:', todosWithTasks)
+        setTodosDemo(todosWithTasks)
         return
       }
 
@@ -53,5 +43,5 @@ export function useTodolistPage({ demo }: { demo: boolean }) {
     getTodos()
   }, [demo])
 
-  return { addTodoList }
+  return { addTodoList, todosDemo }
 }

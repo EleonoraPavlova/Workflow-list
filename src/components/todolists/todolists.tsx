@@ -1,27 +1,33 @@
 import { Paper } from '@mui/material'
-import { Task } from 'common/types'
+import { DemoTodolist, Task, Todolist, TodolistDomain } from 'common/types'
 import { TaskStatuses } from 'common/enums'
 import { useSelector } from 'react-redux'
 import { tasksSelector } from 'services/reducers/tasksSlice'
 import { selectTodolists } from 'services/reducers/todolistsSlice'
 import { TodolistItem } from 'components/todolist-item'
 import { FlexContainer } from 'common/ui'
+import { mockTasks } from 'moc/initialState/mockTasks'
 
 type Props = {
   demo: boolean
+  todosDemo: DemoTodolist[]
 }
 
-export const Todolists = ({ demo }: Props) => {
+export const Todolists = ({ demo, todosDemo }: Props) => {
   const todolists = useSelector(selectTodolists)
   const tasks = useSelector(tasksSelector)
 
-  const todolistsMap = todolists.map((l) => {
-    let tasksForTodolist = tasks[l.id] as Task[]
+  const whichTodolists = demo ? todosDemo : todolists
+  const whichTasks = demo ? mockTasks : tasks
+
+  const todolistsMap = whichTodolists.map((l) => {
+    let tasksForTodolist = whichTasks[l.id] as Task[]
+
     if (l.filter === 'completed') {
-      tasksForTodolist = tasks[l.id].filter((t: Task) => t.status === TaskStatuses.Completed)
+      tasksForTodolist = whichTasks[l.id].filter((t: Task) => t.status === TaskStatuses.Completed)
     }
     if (l.filter === 'incomplete') {
-      tasksForTodolist = tasks[l.id].filter((t: Task) => t.status === TaskStatuses.New)
+      tasksForTodolist = whichTasks[l.id].filter((t: Task) => t.status === TaskStatuses.New)
     }
 
     return (
