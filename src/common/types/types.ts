@@ -72,6 +72,10 @@ export type TodolistDomain = Todolist & {
   entityStatus: RequestStatus
 }
 
+export type DemoTodolist = TodolistDomain & {
+  tasks: Task[]
+}
+
 export type RequestStatus = 'idle' | 'loading' | 'succeeded' | 'failed'
 
 export type FilterValues = 'all' | 'completed' | 'incomplete'

@@ -1,18 +1,26 @@
 import { ThemeProvider } from '@mui/material'
 import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 
 import { useAppContainer } from 'app/hooks/useAppContainer'
-import { selectAppInitialized } from 'services/reducers/appSlice'
+import { appThunks, selectAppInitialized } from 'services/reducers/appSlice'
 import { RoutesComponent } from 'features/routers'
 import { FlexContainer, Header, SnackBar } from 'common/ui'
-import { useState } from 'react'
+import { useActions } from 'common/hooks'
 
 export const AppContainer = () => {
-  let initialized: boolean = useSelector(selectAppInitialized) //first initialization
+  let initialized = useSelector(selectAppInitialized) //first initialization
+  const { setAppInitializeTC } = useActions(appThunks)
 
   let [demo, setDemo] = useState<boolean>(false)
 
   const { lightMode, themeHandler, theme, CustomCircularProgress, toggleTheme } = useAppContainer()
+
+  useEffect(() => {
+    if (!initialized) {
+      setAppInitializeTC()
+    }
+  }, [initialized])
 
   if (!initialized) {
     return (
