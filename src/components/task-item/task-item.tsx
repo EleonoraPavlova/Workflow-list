@@ -7,10 +7,10 @@ import { useTaskItem } from './hooks/useTaskItem'
 import { Task } from 'common/types'
 import { TaskStatuses } from 'common/enums'
 
-import { EditableSpan } from 'components/editable-span'
 import s from './task-item.module.scss'
 import { formatDate } from 'common/utils'
 import { FlexContainer } from 'common/ui'
+import { EditableSpan } from 'components/editable-span'
 
 type Props = {
   task: Task

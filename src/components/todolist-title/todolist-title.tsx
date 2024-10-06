@@ -1,12 +1,12 @@
 import { memo } from 'react'
 import { IconButton } from '@mui/material'
 import { Delete } from '@mui/icons-material'
-import s from './todolist-title.module.scss'
 import { TodolistDomain } from 'common/types'
-import { EditableSpan } from 'components/editable-span'
 import { useActions } from 'common/hooks'
 import { todolistsThunks } from 'services/reducers/todolistsSlice'
 import { FlexContainer } from 'common/ui'
+import { EditableSpan } from 'components/editable-span'
+import s from './todolist-title.module.scss'
 
 type Props = {
   todolist: TodolistDomain
