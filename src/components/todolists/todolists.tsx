@@ -1,5 +1,5 @@
 import { Paper } from '@mui/material'
-import { DemoTodolist, Task, Todolist, TodolistDomain } from 'common/types'
+import { DemoTodolist, Task } from 'common/types'
 import { TaskStatuses } from 'common/enums'
 import { useSelector } from 'react-redux'
 import { tasksSelector } from 'services/reducers/tasksSlice'
