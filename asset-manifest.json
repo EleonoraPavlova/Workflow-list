@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/WorkflowList/static/css/main.eea06b6b.css",
-    "main.js": "/WorkflowList/static/js/main.63e6ae73.js",
-    "static/js/453.ed3810f9.chunk.js": "/WorkflowList/static/js/453.ed3810f9.chunk.js",
-    "index.html": "/WorkflowList/index.html",
-    "main.eea06b6b.css.map": "/WorkflowList/static/css/main.eea06b6b.css.map",
-    "main.63e6ae73.js.map": "/WorkflowList/static/js/main.63e6ae73.js.map",
-    "453.ed3810f9.chunk.js.map": "/WorkflowList/static/js/453.ed3810f9.chunk.js.map"
+    "main.css": "/cogniKids/static/css/main.eea06b6b.css",
+    "main.js": "/cogniKids/static/js/main.3b1e2100.js",
+    "static/js/453.ed3810f9.chunk.js": "/cogniKids/static/js/453.ed3810f9.chunk.js",
+    "index.html": "/cogniKids/index.html",
+    "main.eea06b6b.css.map": "/cogniKids/static/css/main.eea06b6b.css.map",
+    "main.3b1e2100.js.map": "/cogniKids/static/js/main.3b1e2100.js.map",
+    "453.ed3810f9.chunk.js.map": "/cogniKids/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.eea06b6b.css",
-    "static/js/main.63e6ae73.js"
+    "static/js/main.3b1e2100.js"
   ]
 }
