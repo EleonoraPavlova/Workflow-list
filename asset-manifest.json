@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/cogniKids/static/css/main.eea06b6b.css",
-    "main.js": "/cogniKids/static/js/main.3b1e2100.js",
+    "main.css": "/cogniKids/static/css/main.a6ae44f7.css",
+    "main.js": "/cogniKids/static/js/main.a529afcc.js",
     "static/js/453.ed3810f9.chunk.js": "/cogniKids/static/js/453.ed3810f9.chunk.js",
+    "static/media/logo.webp": "/cogniKids/static/media/logo.08f9ce274879d7b1e617.webp",
     "index.html": "/cogniKids/index.html",
-    "main.eea06b6b.css.map": "/cogniKids/static/css/main.eea06b6b.css.map",
-    "main.3b1e2100.js.map": "/cogniKids/static/js/main.3b1e2100.js.map",
+    "main.a6ae44f7.css.map": "/cogniKids/static/css/main.a6ae44f7.css.map",
+    "main.a529afcc.js.map": "/cogniKids/static/js/main.a529afcc.js.map",
     "453.ed3810f9.chunk.js.map": "/cogniKids/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eea06b6b.css",
-    "static/js/main.3b1e2100.js"
+    "static/css/main.a6ae44f7.css",
+    "static/js/main.a529afcc.js"
   ]
 }
