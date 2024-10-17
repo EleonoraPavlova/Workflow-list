@@ -28,7 +28,7 @@ export const TodolistsPage = ({ lightMode, demo }: Props) => {
       <FlexContainer gap="30px" fd="column">
         <FlexContainer jc="center">
           <div className={lightMode ? '' : s.addItemForm}>
-            <AddItemForm addTask={addTodoList} label={"Todolist's name"} />
+            <AddItemForm addTask={addTodoList} label={"Collection's name"} />
           </div>
         </FlexContainer>
         {demo && <Typography sx={{ color: '#8c61ff' }}>limited functionality in demo</Typography>}

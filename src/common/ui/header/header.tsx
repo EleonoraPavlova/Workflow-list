@@ -1,11 +1,11 @@
 import { Menu } from '@mui/icons-material'
-import { AppBar, IconButton, Toolbar, Typography } from '@mui/material'
+import { AppBar, IconButton, Toolbar } from '@mui/material'
 import { useCallback } from 'react'
-
+import logo from 'assets/webp/logo.webp'
 import { authThunks } from 'services/reducers/authSlice'
 import { useActions } from 'common/hooks'
 import { FlexContainer } from '../flex-container'
-import { HeaderButtons } from 'components'
+import { HeaderButtons, HeaderLogo } from 'components'
 import { useNavigate } from 'react-router-dom'
 
 type Props = {
@@ -17,6 +17,7 @@ type Props = {
 
 export const Header = ({ theme, demo, toggleTheme, setDemo }: Props) => {
   const navigate = useNavigate()
+
   const { logOutTC } = useActions(authThunks)
 
   const logOutHandler = useCallback(() => {
@@ -35,7 +36,7 @@ export const Header = ({ theme, demo, toggleTheme, setDemo }: Props) => {
           <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <Menu />
           </IconButton>
-          <Typography variant="h6">Todolist</Typography>
+          <HeaderLogo src={logo} />
         </FlexContainer>
         <HeaderButtons
           demo={demo}
